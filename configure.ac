@@ -133,6 +133,9 @@ AX_PATH_LIB_READLINE
 LNAV_WITH_SQLITE3("3.6.0")
 
 case "$host_os" in
+    cygwin*)
+        AC_DEFINE([_GNU_SOURCE], [1], [Need pread])
+        ;;
     *)
         # AC_DEFINE([_XOPEN_SOURCE], [500], [Need pread])
         AC_DEFINE([_BSD_SOURCE], [1], [Need pread])
